@@ -1,6 +1,7 @@
-import { PokemonsQuery } from '@src/component/feature/Pokemon/Pokemons/pokemons.generate.graphql'
+import { PokemonsQuery } from '@src/component/feature/Pokemon/PokemonsList/PokemonsList.generate.graphql'
 import { ApolloError } from '@apollo/client'
 import { ReactElement } from 'react'
+import { Box } from '@mantine/core'
 
 type PokemonsProps = {
   data?: PokemonsQuery
@@ -9,7 +10,7 @@ type PokemonsProps = {
   children: (pokemons: NonNullable<PokemonsQuery['pokemons']>) => ReactElement[]
 }
 
-export const Pokemons = ({
+export const PokemonsList = ({
   data,
   isLoading,
   error,
@@ -27,5 +28,15 @@ export const Pokemons = ({
     return <>no data</>
   }
 
-  return <>{children(data.pokemons)}</>
+  return (
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3,1fr)',
+        gap: '20px',
+      }}
+    >
+      {children(data.pokemons)}
+    </Box>
+  )
 }
