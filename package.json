@@ -25,6 +25,7 @@
     "@mantine/hooks": "^4.1.4",
     "@mantine/next": "^4.1.4",
     "@types/lodash": "^4.14.182",
+    "framer-motion": "^6",
     "graphql": "^16.3.0",
     "lodash": "^4.17.21",
     "next": "12.1.5",
