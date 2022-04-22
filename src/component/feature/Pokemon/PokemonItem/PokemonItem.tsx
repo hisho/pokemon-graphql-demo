@@ -8,7 +8,9 @@ export const PokemonItem = memo(
   ({ image, name, number }: PokemonItem_PokemonFragment) => {
     return (
       <Navigate
-        href={(path) => path.pokemon._pokemon_name(name ?? 'null').$url()}
+        href={(path) =>
+          path.pokemon._pokemon_name(name?.toLocaleLowerCase() ?? 'null').$url()
+        }
       >
         <Box
           key={name}
