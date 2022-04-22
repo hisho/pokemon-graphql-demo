@@ -12,7 +12,7 @@ generates:
   src/:
     preset: near-operation-file
     presetConfig:
-      extension: .graphql.ts
+      extension: .generate.graphql.ts
       baseTypesPath: lib/graphql/$types.ts
     plugins:
       - 'typescript-operations'
