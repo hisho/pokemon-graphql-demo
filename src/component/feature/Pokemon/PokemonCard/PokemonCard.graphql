@@ -1,0 +1,5 @@
+fragment PokemonCard_pokemon on Pokemon {
+  name
+  image
+  types
+}
