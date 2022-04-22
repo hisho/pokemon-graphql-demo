@@ -2,6 +2,7 @@ import { Avatar, Box, Text, Title } from '@mantine/core'
 import { memo } from 'react'
 import { Navigate } from '@src/component/functional/Navigate/Navigate'
 import { PokemonItem_PokemonFragment } from '@src/component/feature/Pokemon/PokemonItem/PokemonItem.generate.graphql'
+import { motion } from 'framer-motion'
 
 export const PokemonItem = memo(
   ({ image, name, number }: PokemonItem_PokemonFragment) => {
@@ -10,7 +11,11 @@ export const PokemonItem = memo(
         href={(path) => path.pokemon._pokemon_name(name ?? 'null').$url()}
       >
         <Box
-          component={'a'}
+          key={name}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0.2 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          component={motion.a}
           px={'12px'}
           py={'4px'}
           sx={(theme) => ({
