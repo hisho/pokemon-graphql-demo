@@ -1,0 +1,9 @@
+query pokemons {
+  pokemons(first: -1) {
+    name
+    number
+    image
+    types
+    id
+  }
+}
