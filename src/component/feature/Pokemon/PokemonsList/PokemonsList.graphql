@@ -1,9 +1,6 @@
 query pokemons {
   pokemons(first: -1) {
-    name
-    number
-    image
-    types
+    ...PokemonCard_pokemon
     id
   }
 }
