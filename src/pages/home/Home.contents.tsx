@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
 import { PokemonsDocument } from '@src/component/feature/Pokemon/PokemonsList/PokemonsList.generate.graphql'
 import { PokemonsList } from '@src/component/feature/Pokemon/PokemonsList/PokemonsList'
-import { PokemonCard } from '@src/component/feature/Pokemon/PokemonCard/PokemonCard'
+import { PokemonItem } from '@src/component/feature/Pokemon/PokemonItem/PokemonItem'
 
 /**
  * contents
@@ -14,7 +14,7 @@ export const HomeContents = () => {
       {(pokemons) =>
         pokemons.map((pokemon) =>
           pokemon ? (
-            <PokemonCard key={`pokemonCard_${pokemon.id}`} {...pokemon} />
+            <PokemonItem key={`pokemonCard_${pokemon.id}`} {...pokemon} />
           ) : (
             <></>
           )

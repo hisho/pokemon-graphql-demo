@@ -1,6 +1,6 @@
 query pokemons {
   pokemons(first: -1) {
-    ...PokemonCard_pokemon
+    ...PokemonItem_pokemon
     id
   }
 }
