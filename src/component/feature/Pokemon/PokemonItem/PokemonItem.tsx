@@ -9,10 +9,35 @@ export const PokemonItem = memo(
       <Navigate
         href={(path) => path.pokemon._pokemon_name(name ?? 'null').$url()}
       >
-        <Box component={'a'}>
-          <Title>{number}</Title>
-          <Avatar src={image} alt={name ?? ''} />
-          <Title>{name}</Title>
+        <Box
+          component={'a'}
+          px={'12px'}
+          py={'4px'}
+          sx={(theme) => ({
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            color: 'black',
+            boxShadow: theme.shadows.md,
+            transition: 'box-shadow .3s ease-out',
+            ':hover,:focus-visible': {
+              boxShadow: theme.shadows.xs,
+            },
+          })}
+        >
+          <Text sx={{ fontSize: '14px' }}>{number}</Text>
+          <Avatar
+            styles={{
+              image: {
+                objectFit: 'contain',
+                objectPosition: 'center',
+              },
+            }}
+            src={image}
+            alt={name ?? ''}
+          />
+          <Title sx={{ fontSize: '20px' }}>{name}</Title>
         </Box>
       </Navigate>
     )
