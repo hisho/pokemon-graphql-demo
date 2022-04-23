@@ -5,6 +5,7 @@ const safeList = [
   '@apollo/client',
   '@mantine/next',
   '@mantine/core',
+  '@mantine/hooks',
   'next',
   'react',
   'react-dom',
@@ -45,27 +46,20 @@ module.exports = {
   ],
   root: true,
   rules: {
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
-    ],
     // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md
     '@typescript-eslint/naming-convention': [
       'warn',
       {
         format: ['camelCase', 'PascalCase'],
-        selector: 'default',
         leadingUnderscore: 'allow',
+        selector: 'default',
         trailingUnderscore: 'allow',
       },
 
       {
         format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
-        selector: 'variable',
         leadingUnderscore: 'allow',
+        selector: 'variable',
         trailingUnderscore: 'allow',
       },
 
@@ -75,7 +69,13 @@ module.exports = {
       },
     ],
 
-    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
 
     // https://github.com/yannickcr/eslint-plugin-react
     'react/boolean-prop-naming': [
@@ -83,15 +83,16 @@ module.exports = {
       { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' },
     ],
 
-    'simple-import-sort/exports': 'warn',
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['.*', ...noRestrictedImportsPatterns],
+      },
+    ],
 
     'react/destructuring-assignment': ['warn', 'always'],
 
-    'simple-import-sort/imports': 'warn',
-
     'react/display-name': 'off',
-
-    'sort-destructure-keys/sort-destructure-keys': 'warn',
 
     'react/function-component-definition': [
       'warn',
@@ -101,24 +102,18 @@ module.exports = {
       },
     ],
 
-    'sort-keys-fix/sort-keys-fix': 'warn',
     'react/jsx-boolean-value': 'warn',
-    'typescript-sort-keys/interface': 'warn',
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['.*', ...noRestrictedImportsPatterns],
-      },
-    ],
-    'typescript-sort-keys/string-enum': 'warn',
+
     'react/jsx-curly-brace-presence': ['warn', { props: 'always' }],
-    'unused-imports/no-unused-imports': 'warn',
+
     'react/jsx-no-useless-fragment': 'warn',
+
     'react/jsx-pascal-case': 'warn',
     'react/jsx-sort-props': [
       'warn',
       { callbacksLast: true, shorthandFirst: true },
     ],
+    'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': [
       'warn',
       {
@@ -126,6 +121,13 @@ module.exports = {
         html: true,
       },
     ],
+    'simple-import-sort/exports': 'warn',
+    'simple-import-sort/imports': 'warn',
+    'sort-destructure-keys/sort-destructure-keys': 'warn',
+    'sort-keys-fix/sort-keys-fix': 'warn',
+    'typescript-sort-keys/interface': 'warn',
+    'typescript-sort-keys/string-enum': 'warn',
+    'unused-imports/no-unused-imports': 'warn',
   },
   settings: {
     react: {
