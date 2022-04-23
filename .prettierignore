@@ -4,3 +4,5 @@ yarn.lock
 node_modules
 src/lib/pathpida/$path.ts
 src/lib/graphql/$types.ts
+src/**/*.graphql.ts
+schema.graphql
