@@ -8,9 +8,9 @@ import {
   Skeleton,
   Title,
 } from '@mantine/core'
-import { PokemonDocument } from '@src/component/feature/Pokemon/PokemonCard/pokemon.generate.graphql'
 import { PokemonCard } from '@src/component/feature/Pokemon/PokemonCard/PokemonCard'
 import { Navigate } from '@src/component/functional/Navigate/Navigate'
+import { PokemonNamePageDocument } from '@src/pages/pokemon/[pokemon_name]/pokemonNamePage.generate.graphql'
 import { useRouter } from 'next/router'
 
 const Pokemon = ({ name }: { name: string }) => {
@@ -18,7 +18,7 @@ const Pokemon = ({ name }: { name: string }) => {
     data,
     error,
     loading: isLoading,
-  } = useQuery(PokemonDocument, {
+  } = useQuery(PokemonNamePageDocument, {
     variables: {
       name,
     },

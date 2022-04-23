@@ -1,4 +1,4 @@
-query pokemon($name: String) {
+query pokemonNamePage($name: String) {
   pokemon(name: $name) {
     ...PokemonCard_pokemon
   }
