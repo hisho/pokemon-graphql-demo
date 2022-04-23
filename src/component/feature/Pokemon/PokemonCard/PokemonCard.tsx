@@ -1,10 +1,10 @@
-import { PokemonCard_PokemonFragment } from '@src/component/feature/Pokemon/PokemonCard/PokemonCard.generate.graphql'
 import { Box, Image } from '@mantine/core'
+import { PokemonCard_PokemonFragment } from '@src/component/feature/Pokemon/PokemonCard/PokemonCard.generate.graphql'
 
 export const PokemonCard = ({
-  number,
-  name,
   image,
+  name,
+  number,
   types,
 }: PokemonCard_PokemonFragment) => {
   return (
@@ -18,7 +18,7 @@ export const PokemonCard = ({
       )}
       <Box>
         {types?.map((type) => (
-          <Box>{type}</Box>
+          <Box key={`PokemonCard_${type}`}>{type}</Box>
         ))}
       </Box>
     </Box>

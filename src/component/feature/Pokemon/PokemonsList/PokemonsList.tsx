@@ -1,34 +1,34 @@
-import { PokemonsQuery } from '@src/component/feature/Pokemon/PokemonsList/PokemonsList.generate.graphql'
 import { ApolloError } from '@apollo/client'
-import { ReactElement } from 'react'
 import { Box, Skeleton } from '@mantine/core'
 import { range } from '@mantine/hooks'
+import { PokemonsQuery } from '@src/component/feature/Pokemon/PokemonsList/PokemonsList.generate.graphql'
+import { ReactElement } from 'react'
 
 type PokemonsProps = {
-  data?: PokemonsQuery
-  isLoading: boolean
-  error?: ApolloError
   children: (pokemons: NonNullable<PokemonsQuery['pokemons']>) => ReactElement[]
+  data?: PokemonsQuery
+  error?: ApolloError
+  isLoading: boolean
 }
 
 export const PokemonsList = ({
-  data,
-  isLoading,
-  error,
   children,
+  data,
+  error,
+  isLoading,
 }: PokemonsProps) => {
   const gridStyles = {
     sx: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(248px,1fr))',
       gap: '20px',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(248px,1fr))',
     },
   }
   if (isLoading) {
     return (
       <Box {...gridStyles}>
         {range(0, 60).map((item) => (
-          <Skeleton key={`loading_skelton_${item}`} height={'46px'}>
+          <Skeleton height={'46px'} key={`loading_skelton_${item}`}>
             loading...
           </Skeleton>
         ))}
