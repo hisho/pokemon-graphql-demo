@@ -1,0 +1,6 @@
+query pokemons {
+  pokemons(first: -1) {
+    ...PokemonItem_pokemon
+    id
+  }
+}

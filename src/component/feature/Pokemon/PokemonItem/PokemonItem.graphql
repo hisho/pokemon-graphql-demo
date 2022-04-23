@@ -1,0 +1,5 @@
+fragment PokemonItem_pokemon on Pokemon {
+  number
+  name
+  image
+}

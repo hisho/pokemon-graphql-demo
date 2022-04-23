@@ -6,5 +6,9 @@ type LayoutProps = {
 }
 
 export const Layout = memo(({ children }: LayoutProps) => {
-  return <Container>{children}</Container>
+  return (
+    <Container pt={'40px'} pb={'80px'}>
+      {children}
+    </Container>
+  )
 })

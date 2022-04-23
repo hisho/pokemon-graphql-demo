@@ -1,8 +1,6 @@
-/**
- * @see https://medium.com/@keeganfamouss/accessibility-on-demand-with-chakra-ui-and-focus-visible-19413b1bc6f9
- */
-
+import { ApolloProvider } from '@apollo/client'
 import { MantineProvider } from '@mantine/core'
+import { createApolloClient } from '@src/lib/apollo/createApolloClient'
 import type { AppPropsWithLayout } from 'next/app'
 import { memo } from 'react'
 
@@ -12,9 +10,11 @@ import { memo } from 'react'
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page)
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
-      {getLayout(<Component {...pageProps} />, pageProps)}
-    </MantineProvider>
+    <ApolloProvider client={createApolloClient()}>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        {getLayout(<Component {...pageProps} />, pageProps)}
+      </MantineProvider>
+    </ApolloProvider>
   )
 }
 

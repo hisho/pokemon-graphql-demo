@@ -1,0 +1,5 @@
+query pokemonNamePage($name: String) {
+  pokemon(name: $name) {
+    ...PokemonCard_pokemon
+  }
+}
