@@ -20,11 +20,11 @@ module.exports = {
     node: true,
   },
   extends: [
+    'next/core-web-vitals',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'prettier',
   ],
   ignorePatterns: ['src/**/*.test.ts', 'src/**/*.graphql.ts'],
@@ -77,17 +77,17 @@ module.exports = {
       },
     ],
 
-    // https://github.com/yannickcr/eslint-plugin-react
-    'react/boolean-prop-naming': [
-      'warn',
-      { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' },
-    ],
-
     'no-restricted-imports': [
       'error',
       {
         patterns: ['.*', ...noRestrictedImportsPatterns],
       },
+    ],
+
+    // https://github.com/yannickcr/eslint-plugin-react
+    'react/boolean-prop-naming': [
+      'warn',
+      { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' },
     ],
 
     'react/destructuring-assignment': ['warn', 'always'],
