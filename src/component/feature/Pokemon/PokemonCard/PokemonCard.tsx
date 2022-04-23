@@ -1,5 +1,6 @@
-import { AspectRatio, Box, Image } from '@mantine/core'
+import { AspectRatio, Box, Card, Text, Title } from '@mantine/core'
 import { PokemonCard_PokemonFragment } from '@src/component/feature/Pokemon/PokemonCard/PokemonCard.generate.graphql'
+import { getPokemonTypeColours } from '@src/constant/pokemon'
 
 export const PokemonCard = ({
   image,
@@ -8,19 +9,35 @@ export const PokemonCard = ({
   types,
 }: PokemonCard_PokemonFragment) => {
   return (
-    <Box>
-      <Box>{number}</Box>
-      <Box>{name}</Box>
+    <Card shadow={'sm'} sx={{ position: 'relative' }}>
+      <Text sx={{ fontWeight: 'bold' }}>No.{number}</Text>
       {image && (
-        <AspectRatio mx={'auto'} ratio={1} sx={{ maxWidth: '600px' }}>
-          <Image fit={'contain'} src={image} />
+        <AspectRatio mt={'4px'} mx={'auto'} ratio={16 / 9}>
+          <Box
+            alt={''}
+            component={'img'}
+            src={image}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            sx={{ objectFit: 'contain !important' }}
+          />
         </AspectRatio>
       )}
-      <Box>
+      <Title mt={'12px'}>{name}</Title>
+      <Box mt={'8px'} sx={{ display: 'flex', gap: '12px' }}>
         {types?.map((type) => (
-          <Box key={`PokemonCard_${type}`}>{type}</Box>
+          <Box
+            key={`PokemonCard_${type}`}
+            px={'12px'}
+            sx={{
+              backgroundColor: getPokemonTypeColours(type ?? ''),
+              borderRadius: '8px',
+            }}
+          >
+            {type}
+          </Box>
         ))}
       </Box>
-    </Box>
+    </Card>
   )
 }
