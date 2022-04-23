@@ -1,9 +1,9 @@
-import { Button } from '@mantine/core'
-import { useRouter } from 'next/router'
-import { Navigate } from '@src/component/functional/Navigate/Navigate'
 import { useQuery } from '@apollo/client'
+import { Button } from '@mantine/core'
 import { PokemonDocument } from '@src/component/feature/Pokemon/PokemonCard/pokemon.generate.graphql'
 import { PokemonCard } from '@src/component/feature/Pokemon/PokemonCard/PokemonCard'
+import { Navigate } from '@src/component/functional/Navigate/Navigate'
+import { useRouter } from 'next/router'
 
 /**
  * contents

@@ -1,6 +1,6 @@
 import { Layout } from '@src/layout/Layout'
-import type { NextPageWithLayout } from 'next'
 import { PokemonContents } from '@src/pages/pokemon/[pokemon_name]/Pokemon.contents'
+import type { NextPageWithLayout } from 'next'
 
 /**
  * server side & redirect ...
