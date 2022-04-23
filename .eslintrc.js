@@ -2,6 +2,7 @@ const { difference } = require('lodash')
 const pkg = require('./package.json')
 const dependenciesList = Object.entries(pkg.dependencies).flatMap(([k]) => k)
 const safeList = [
+  '@apollo/client',
   '@mantine/next',
   '@mantine/core',
   'next',
