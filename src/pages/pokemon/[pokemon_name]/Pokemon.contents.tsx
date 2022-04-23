@@ -41,6 +41,7 @@ const Pokemon = ({ name }: { name: string }) => {
   }
 
   if (error) {
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{error.message}</>
   }
 
